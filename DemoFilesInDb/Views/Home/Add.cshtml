@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Picture</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Add" method="post" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Select a file : </label>
+                <input type="file" name="file" class="form-control" />                
+            </div>
+            <div class="form-group">
+                <input asp-page-handler="Upload" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
